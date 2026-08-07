@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>成果库</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh;color:#e2e8f0}
+.container{max-width:800px;margin:0 auto;padding:40px 20px}
+.header{text-align:center;padding:40px 0}
+.header h1{font-size:32px;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.header p{color:#94a3b8;font-size:15px}
+.card{background:#1e293b;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid #334155;transition:all .2s;display:flex;align-items:center;gap:16px;text-decoration:none;color:#e2e8f0}
+.card:hover{border-color:#60a5fa;transform:translateX(4px)}
+.card-icon{font-size:32px;flex-shrink:0}
+.card-info{flex:1}
+.card-title{font-size:16px;font-weight:600;margin-bottom:4px}
+.card-desc{font-size:13px;color:#94a3b8}
+.card-date{font-size:12px;color:#64748b;margin-top:4px}
+.card-arrow{color:#64748b;font-size:20px}
+.empty{text-align:center;padding:60px 20px;color:#64748b}
+.footer{text-align:center;padding:40px 0;color:#475569;font-size:13px}
+.footer a{color:#60a5fa}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📦 成果库</h1>
+    <p>AI Agent 任务产出 · 持续更新</p>
+  </div>
+
+  <a href="资料分析题型分类.html" class="card">
+    <div class="card-icon">📊</div>
+    <div class="card-info">
+      <div class="card-title">资料分析题型分类汇总</div>
+      <div class="card-desc">国考 2022-2026 · 江苏 2020-2025 | 30套试卷 | 按题型分类</div>
+      <div class="card-date">2026-08-07</div>
+    </div>
+    <div class="card-arrow">→</div>
+  </a>
+
+  <div class="empty" id="more">
+    <p>🎯 更多产出即将上线</p>
+  </div>
+
+  <div class="footer">
+    Powered by <a href="https://github.com/steven-xjx">steven-xjx</a> · GitHub Pages
+  </div>
+</div>
+</body>
+</html>
