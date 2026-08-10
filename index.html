@@ -3,51 +3,200 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>成果库</title>
+<title>资料分析题型分类汇总</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh;color:#e2e8f0}
-.container{max-width:800px;margin:0 auto;padding:40px 20px}
-.header{text-align:center;padding:40px 0}
-.header h1{font-size:32px;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
-.header p{color:#94a3b8;font-size:15px}
-.card{background:#1e293b;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid #334155;transition:all .2s;display:flex;align-items:center;gap:16px;text-decoration:none;color:#e2e8f0}
-.card:hover{border-color:#60a5fa;transform:translateX(4px)}
-.card-icon{font-size:32px;flex-shrink:0}
-.card-info{flex:1}
-.card-title{font-size:16px;font-weight:600;margin-bottom:4px}
-.card-desc{font-size:13px;color:#94a3b8}
-.card-date{font-size:12px;color:#64748b;margin-top:4px}
-.card-arrow{color:#64748b;font-size:20px}
-.empty{text-align:center;padding:60px 20px;color:#64748b}
-.footer{text-align:center;padding:40px 0;color:#475569;font-size:13px}
-.footer a{color:#60a5fa}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#333}
+.header{background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:18px 30px;text-align:center}
+.header h1{font-size:22px;font-weight:600}
+.header p{font-size:13px;opacity:.85;margin-top:4px}
+.container{max-width:1200px;margin:0 auto;padding:16px 20px}
+.cat-tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.cat-tab{padding:6px 18px;border-radius:20px;cursor:pointer;font-size:13px;border:1.5px solid #d0d5dd;background:#fff;color:#666;transition:all .2s;user-select:none}
+.cat-tab:hover{border-color:#1a73e8;color:#1a73e8}
+.cat-tab.active{background:#1a73e8;color:#fff;border-color:#1a73e8}
+.year-group{margin-bottom:6px}
+.year-label{font-size:12px;color:#999;margin:0 4px 6px;font-weight:600}
+.paper-tabs{display:flex;gap:5px;margin-bottom:16px;flex-wrap:wrap}
+.paper-tab{padding:7px 14px;border-radius:8px;cursor:pointer;font-size:12.5px;border:1.5px solid #e0e0e0;background:#fff;transition:all .2s;user-select:none}
+.paper-tab:hover{background:#e8f0fe;border-color:#1a73e8}
+.paper-tab.active{background:#1a73e8;color:#fff;border-color:#1a73e8;font-weight:600}
+.paper-tab.done{border-color:#34a853}
+.paper-tab.done::after{content:' ✓';color:#34a853;font-size:10px}
+.paper-tab.active.done::after{color:#a8d5a8}
+.paper-title{font-size:18px;font-weight:700;color:#1a73e8;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #e8f0fe;display:flex;align-items:center;gap:12px}
+.paper-title span{color:#999;font-weight:400;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.card{background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #e8ecf0;display:flex;align-items:center;gap:10px;transition:all .2s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.08);border-color:#c5d5f0;transform:translateY(-1px)}
+.card-num{width:30px;height:30px;border-radius:8px;background:#e8f0fe;color:#1a73e8;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.card-text{font-size:13.5px;color:#444;line-height:1.4}
+.stats{background:#fff;border-radius:10px;padding:14px 18px;margin-bottom:14px;border:1px solid #e8ecf0;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.stat-item{display:flex;align-items:center;gap:6px;font-size:14px;color:#666}
+.stat-item strong{color:#1a73e8;font-size:20px}
+.stat-item .tag{background:#e8f0fe;padding:2px 8px;border-radius:10px;font-size:12px;margin:0 1px}
+.search-box{margin-bottom:14px}
+.search-box input{width:100%;padding:10px 16px;border:1.5px solid #d0d5dd;border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
+.search-box input:focus{border-color:#1a73e8}
+.card.hidden{display:none}
+.empty{text-align:center;padding:60px;color:#999;font-size:15px}
+.empty .icon{font-size:40px;margin-bottom:10px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.header h1{font-size:18px}}
 </style>
 </head>
 <body>
-<div class="container">
-  <div class="header">
-    <h1>📦 成果库</h1>
-    <p>AI Agent 任务产出 · 持续更新</p>
-  </div>
 
-  <a href="资料分析题型分类.html" class="card">
-    <div class="card-icon">📊</div>
-    <div class="card-info">
-      <div class="card-title">资料分析题型分类汇总</div>
-      <div class="card-desc">国考 2022-2026 · 江苏 2020-2025 | 30套试卷 | 按题型分类</div>
-      <div class="card-date">2026-08-07</div>
-    </div>
-    <div class="card-arrow">→</div>
-  </a>
-
-  <div class="empty" id="more">
-    <p>🎯 更多产出即将上线</p>
-  </div>
-
-  <div class="footer">
-    Powered by <a href="https://github.com/steven-xjx">steven-xjx</a> · GitHub Pages
-  </div>
+<div class="header">
+  <h1>📊 资料分析题型分类汇总</h1>
+  <p>国考 2022-2026 · 江苏 2020-2025 | 共 30 套试卷</p>
 </div>
+
+<div class="container">
+  <div class="cat-tabs">
+    <div class="cat-tab active" onclick="switchCat('all')">全部</div>
+    <div class="cat-tab" onclick="switchCat('guokao')">国考</div>
+    <div class="cat-tab" onclick="switchCat('jiangsu')">江苏</div>
+  </div>
+
+  <div class="paper-tabs" id="paperTabs"></div>
+  <div class="search-box"><input type="text" id="searchInput" placeholder="🔍 搜索题型关键词" oninput="filterCards()"></div>
+  <div id="contentArea"></div>
+</div>
+
+<script>
+// 数据结构
+const DATA = {
+  '2026副省': {items: ["常规翻译","补充论据","削弱选非题","削弱选非题","论证结构","统计表+简单加减计算","混合增长率+统计表","现期平均数+统计表","基期和差+统计表","统计表+平均数的增长率","统计图+简单加减计算","统计图+简单加减计算","统计图+简单加减计算","一般增长率+统计图","增长量比较+统计图","综合资料+简单加减计算","现期倍数+综合资料","现期比重+综合资料","现期比重+综合资料","综合分析+综合资料"]},
+  '2025执法': {items: ["综合资料+简单加减计算","一般增长率+综合资料","一般增长率+综合资料","比值计算+综合资料","增长量比较+综合资料","统计表+现期倍数","统计表+现期倍数","统计表+比值比较","现期计算+统计表","增长量比较+统计表","现期比重+综合资料","现期比重+综合资料","现期平均数+综合资料","现期比重+综合资料","现期比重+综合资料","文字资料+平均数的增长量","两期比重+文字资料","基期平均数+文字资料","文字资料+平均数的增长率","综合分析+文字资料"]},
+  '2025地市': {items: ["现期比重+综合资料","现期比重+综合资料","现期平均数+综合资料","现期比重+综合资料","现期比重+综合资料","统计表+比值比较","统计表+现期倍数","统计表+现期倍数","现期计算+统计表","增长量比较+统计表","统计图+简单加减计算","现期平均数+统计图","现期平均数+统计图","现期比重+统计图","综合分析+统计图","现期比重+文字资料","现期比重+文字资料","现期比重+文字资料","两期比重+文字资料","综合分析+文字资料"]},
+  '2025副省': {items: ["补充论据","加强选非题","常规翻译","削弱论点","从最大信息开始推","综合资料+简单加减计算","一般增长率+综合资料","一般增长率+综合资料","比值计算+综合资料","增长量比较+综合资料","综合资料+简单加减计算","现期比重+综合资料","现期比重+综合资料","现期倍数+综合资料","现期平均数+综合资料","现期平均数+综合资料","现期倍数+综合资料","现期计算+综合资料","现期比重+综合资料","现期比重+综合资料"]},
+  '2024执法': {items: ["一般增长率+综合资料","现期比重+综合资料","综合资料+简单加减计算","增长量比较+综合资料","综合分析+综合资料","统计表+现期倍数","现期比重+统计表","统计表+比值比较","现期比重+统计表","现期比重+统计表","基期比重+综合资料","一般增长率+综合资料","现期倍数+综合资料","混合比重+综合资料","综合分析+综合资料","文字资料+现期倍数","文字资料+一般增长率","现期平均数+文字资料","现期比重+文字资料","综合分析+文字资料"]},
+  '2023执法': {items: ["现期比重+统计表","统计表+一般增长率","统计表+一般增长率","统计表","增长量比较+统计表","直接找数+统计表","统计表+简单加减计算","统计表+平均数的增长量","统计表+简单加减计算","直接找数+统计表","统计图+简单加减计算","现期平均数+统计图","现期比重+统计图","现期比重+统计图","增长量比较+统计图","文字资料+间隔增长率","现期比重+文字资料","增长量比较+文字资料","基期比重+文字资料","基期和差+文字资料"]},
+  '2023地市': {items: ["直接找数+统计表","统计表+简单加减计算","统计表+平均数的增长量","统计表+简单加减计算","直接找数+统计表","综合资料+简单加减计算","现期比重+综合资料","一般增长率+综合资料","现期计算+综合资料","综合分析+综合资料","统计图+简单加减计算","现期平均数+统计图","现期比重+统计图","现期比重+统计图","增长量比较+统计图","文字资料+一般增长率","两期比重+文字资料","现期比重+文字资料","现期平均数+文字资料","综合分析+文字资料"]},
+  '2023副省': {items: ["综合资料","增长量计算+综合资料","两期比重+综合资料","增长量计算+综合资料","增长量比较+综合资料","现期比重+统计表","统计表+一般增长率","统计表+一般增长率","统计表","增长量比较+统计表","综合资料+简单加减计算","一般增长率+综合资料","现期比重+综合资料","现期计算+综合资料","综合分析+综合资料","文字资料+间隔增长率","现期比重+文字资料","增长量比较+文字资料","基期比重+文字资料","基期和差+文字资料"]},
+  '2022执法': {items: ["直接找数+统计表","现期比重+统计表","统计表+现期倍数","现期比重+统计表","综合分析+统计表","一般增长率+综合资料","现期比重+综合资料","现期比重+综合资料","现期比重+综合资料","增长量比较+综合资料","现期比重+统计图","统计图+简单加减计算","统计图+简单加减计算","增长量比较+统计图","现期计算+统计图","基期平均数+文字资料","文字资料+基期计算","现期平均数+文字资料","文字资料+现期倍数","综合分析+文字资料"]},
+  '2022地市': {items: ["综合资料+基期计算","增长量比较+综合资料","综合资料+两期平均数比较","现期倍数+综合资料","现期平均数+综合资料","现期比重+统计图","统计图+简单加减计算","统计图+简单加减计算","增长量比较+统计图","现期计算+统计图","直接找数+统计表","现期比重+统计表","统计表+现期倍数","现期比重+统计表","综合分析+统计表","增长量计算+文字资料","两期比重+文字资料","文字资料+基期计算","现期比重+文字资料","文字资料+简单加减计算"]},
+  '2022副省': {items: ["综合资料+简单加减计算","一般增长率+综合资料","混合增长率+综合资料","综合资料+排序类","综合资料+排序类","综合资料+基期计算","增长量比较+综合资料","综合资料+两期平均数比较","现期倍数+综合资料","现期平均数+综合资料","基期平均数+综合资料","增长量计算+综合资料","现期比重+综合资料","直接找数+综合资料","综合分析+综合资料","增长量计算+文字资料","两期比重+文���资料","文字资料+基期计算","现期比重+文字资料","文字资料+简单加减计算"]},
+  '2025江苏B': {items: ["江苏特色-年均增长量+统计表","江苏特色-增长量计算+统计表","江苏特色-一般增长率+统计表","统计表+江苏特色-现期计算","综合分析+统计表","江苏特色-增长量计算+综合资料","江���特色-现期比重+综合资料","江苏特色-现期比重+综合资料","综合资料+江苏特色-两期比重","综合分析+综合资料","江苏特色-直接找数+综合资料","江苏特色-直接找数+综合资料","江苏特色-现期比重+综合资料","江苏特色-年均增长率+综合资料","综合分析+综合资料","综合资料+江苏特色-现期平均数","江苏特色-增长量计算+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料"]},
+  '2025江苏C': {items: ["江苏特色-现期比重+文字资料","文字资料+江苏特色-基期比重","江苏特色-基期和差+文字资料","江苏特色-年均增长量+文字资料","综合分析+文字资料","江苏特色-增长量计算+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","综合资料+江苏特色-两期比重","综合分析+综合资料","江苏特色-直接找数+综合资料","江苏特色-直接找数+综合资料","江苏特色-现期比重+综合资料","江苏特色-年均增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-增长量计算+综合资料","江苏特色-现期比重+综合资料","江苏特色-两期平均数比较+综合资料","综合分析+综合资料"]},
+  '2024江苏A': {items: ["江苏特色-增长量计算+文字资料","文字资料+江苏特色-现期平均数","江苏特色-现期比重+文字资料","文字资料+江苏特色-两期平均数比较","综合分析+文字资料","江苏特色-增长量计算+统计表","江苏特色-简单加减计算+统计表","江苏特色-现期比重+统计表","江苏特色-一般增长率+统计表","综合分析+统计表","江苏特色-增长量计算+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-增长量比较+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-比值计算+综合资料","江苏特色-年均增长率+综合资料","江苏特色-现期比重+综合资料","综合分析+综合资料"]},
+  '2024江苏B': {items: ["江苏特色-增长量计算+文字资料","文字资料+江苏特色-现期平均数","江苏特色-现期比重+文字资料","文字资料+江苏特色-两期平均数比较","综合分析+文字资料","统计表+江苏特色-现期平均数","江苏特色-增长量计算+统计表","江苏特色-年均增长率+统计表","江苏特色-现期比重+统计表","综合分析+统计表","江苏特色-增长量计算+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-增长量比较+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-增长量比较+综合资料","江苏特色-直接找数+综合资料","江苏特色-一般增长率+综合资料","江苏特色-现期计算+综合资料","江苏特色-一般增长率+综合资料"]},
+  '2024江苏C': {items: ["江苏特色-现期比重+综合资料","江苏特色-比值计算+综合资料","江苏特色-年均增长率+综合资料","江苏特色-现期比重+综合资料","综合分析+综合资料","江苏特色-增长量计算+统计表","江苏特色-简单加减计算+统计表","江苏特色-现期比重+统计表","江苏特色-一般增长率+统计表","综合分析+统计表","统计表+江苏特色-现期平均数","江苏特色-增长量计算+统计表","江苏特色-年均增长率+统计表","江苏特色-现期比重+统计表","综合分析+统计表","江苏特色-增长量比较+综合资料","江苏特色-直接找数+综合资料","江苏特色-一般增长率+综合资料","江苏特色-现期计算+综合资料","江苏特色-一般增长率+综合资料"]},
+  '2023江苏A': {items: ["江苏特色-简单加减计算+文字资料","文字资料+江苏特色-两期比重","江苏特色-基期计算+文字资料","江苏特色-基期倍数+文字资料","综合分析+文字资料","江苏特色-增长量比较+综合资料","江苏特色-年均增长量+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","综合资料+江苏特色-现期平均数","综合分析+综合资料","江苏特色-基期计算+综合资料","江苏特色-一般增长率+综合资料","江苏特色-基期比重+综合资料","江苏特色-直接找数+综合资料","综合分析+综合资料"]},
+  '2023江苏B': {items: ["江苏特色-简单加减计算+文字资料","文字资料+江苏特色-两期比重","江苏特色-基期计算+文字资料","江苏特色-基期倍数+文字资料","综合分析+文字资料","江苏特色-增长量计算+综合资料","江苏特色-简单加减计算+综合资料","综合资料+江苏特色-两期比重","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","综合资料+江苏特色-现期平均数","综合分析+综合资料","江苏特色-增长量比较+综合资料","江苏特色-年均增长量+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料"]},
+  '2022江苏A': {items: ["江苏特色-简单加减计算+文字资料","文字资料+江苏特色-现期平均数","文字资料+江苏特色-基期比重","江苏特色-基期计算+文字资料","综合分析+文字资料","江苏特色-现期比重+统计表","江苏特色-年均增长率+统计表","统计表+江苏特色-现期平均数","江苏特色-现期比重+统计表","综合分析+统计表","江苏特色-年均增长量+综合资料","综合资料+江苏特色-现期平均数","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-基期计算+综合资料","江苏特色-混合增长率+综合资料","江苏特色-现期倍数+综合资料","江苏特色-间隔增长率+综合资料","综合分析+综合资料"]},
+  '2022江苏B': {items: ["综合资料+江苏特色-现期平均数","江苏特色-直接找数+综合资料","江苏特色-现期比重+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-简单加减计算+文字资料","文字资料+江苏特色-现期平均数","文字资料+江苏特色-基期比重","江苏特色-基期计算+文字资料","综合分析+文字资料","江苏特色-一般增长率+综合资料","江苏特色-年均增长量+综合资料","江苏特色-年均增长率+综合资料","江苏特色-简单加减计算+综合资料","综合分析+综合资料","江苏特色-基期计算+综合资料","江苏特色-混合增长率+综合资料","江苏特色-现期倍数+综合资料","江苏特色-间隔增长率+综合资料","综合分析+综合资料"]},
+  '2022江苏C': {items: ["江苏特色-现期比重+统计表","江苏特色-年均增长率+统计表","统计表+江苏特色-现期平均数","江苏特色-现期比重+统计表","综合分析+统计表","综合资料+江苏特色-现期平均数","江苏特色-直接找数+综合资料","江苏特色-现期比重+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-年均增长量+综合资料","综合资料+江苏特色-现期平均数","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-一般增长率+综合资料","江苏特色-年均增长量+综合资料","江苏特色-年均增长率+综合资料","江苏特色-简单加减计算+综合资料","综合分析+综合资料"]},
+  '2021江苏A': {items: ["江苏特色-简单加减计算+文字资料","文字资料+江苏特色-基期比重","文字资料+江苏特色-现期计算","江苏特色-现期比重+文字资料","综合分析+文字资料","综合资料+江苏特色-两期比重","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","江苏特色-基期和差+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-增长量比较+综合资料","江苏特色-比值比较+综合资料","江苏特色-增长量比较+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料"]},
+  '2021江苏B': {items: ["江苏特色-简单加减计算+文字资料","文字资料+江苏特色-基期比重","文字资料+江苏特色-现期计算","江苏特色-现期比重+文字资料","综合分析+文字资料","综合资料+江苏特色-两期比重","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","江苏特色-基期和差+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-混合增长率+综合资料","江苏特色-增长量比较+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-直接找数+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料"]},
+  '2021江苏C': {items: ["江苏特色-简单加减计算+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-直接找数+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-增长量比较+综合资料","江苏特色-比值比较+综合资料","江苏特色-增长量比较+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-混合增长率+综合资料","江苏特色-增长量比较+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","江苏特色-一般增长率+综合资料","综合分析+综合资料"]},
+  '2020江苏C': {items: ["江苏特色-一般增长率+文字资料","江苏特色-年均增长率+文字资料","江苏特色-基期计算+江苏特色-年均增长量+文字资料","江苏特色-简单加减计算+文字资料","综合分析+文字资料","江苏特色-现期比重+统计表","江苏特色-现期比重+统计表","统计表+江苏特色-现期平均数","统计表+江苏特色-两期比重","综合分析+统计表","江苏特色-现期比重+综合资料","江苏特色-简单加减计算+综合资料","江苏特色-现期比重+综合资料","江苏特色-倍数比较+综合资料","综合分析+综合资料","江苏特色-现期比重+综合资料","江苏特色-现期比重+综合资料","江苏特色-增长量比较+综合资料","江苏特色-年均增长量+综合资料","综合分析+综合资料"]},
+};
+
+
+const ORDER = {
+  guokao: ['2026执法','2026地市','2026副省','2025执法','2025地市','2025副省','2024执法','2024地市','2024副省','2023执法','2023地市','2023副省','2022执法','2022地市','2022副省'],
+  jiangsu: ['2025江苏A','2025江苏B','2025江苏C','2024江苏A','2024江苏B','2024江苏C','2023江苏A','2023江苏B','2022江苏A','2022江苏B','2022江苏C','2021江苏A','2021江苏B','2021江苏C','2020江苏C']
+};
+
+let currentCat = 'all';
+let currentKey = null;
+
+function getPapers() {
+  if (currentCat === 'all') return [...ORDER.guokao, ...ORDER.jiangsu];
+  return ORDER[currentCat];
+}
+
+function switchCat(cat) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.textContent === (cat==='all'?'全部':cat==='guokao'?'国考':'江苏')));
+  buildTabs();
+}
+
+function buildTabs() {
+  const tabs = document.getElementById('paperTabs');
+  const papers = getPapers();
+  // Group by year
+  const groups = {};
+  papers.forEach(k => {
+    const yr = k.match(/^\d{4}/)[0];
+    if (!groups[yr]) groups[yr] = [];
+    groups[yr].push(k);
+  });
+
+  tabs.innerHTML = '';
+  Object.entries(groups).reverse().forEach(([yr, keys]) => {
+    const gDiv = document.createElement('div');
+    gDiv.className = 'year-group';
+    const lbl = document.createElement('div');
+    lbl.className = 'year-label';
+    lbl.textContent = yr;
+    gDiv.appendChild(lbl);
+    keys.forEach(k => {
+      const tab = document.createElement('span');
+      tab.className = 'paper-tab';
+      if (DATA[k] && DATA[k].items.length > 0) tab.classList.add('done');
+      const short = k.replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22');
+      tab.textContent = short;
+      tab.onclick = () => switchPaper(k);
+      gDiv.appendChild(tab);
+    });
+    tabs.appendChild(gDiv);
+  });
+
+  // Auto-select first
+  if (papers.length > 0) switchPaper(papers[0]);
+}
+
+function switchPaper(key) {
+  currentKey = key;
+  document.querySelectorAll('.paper-tab').forEach(t => t.classList.toggle('active', t.textContent === key.replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22')));
+  renderContent(key);
+}
+
+function renderContent(key) {
+  const area = document.getElementById('contentArea');
+  const data = DATA[key] || { items: [] };
+  const keyword = document.getElementById('searchInput').value.trim().toLowerCase();
+
+  let html = `<div class="paper-title">${key}<span>${data.items.length || 0}题</span></div>`;
+
+  if (data.items.length === 0) {
+    html += '<div class="empty"><div class="icon">📭</div>待提取题型数据<br><small>需在粉笔完成答题后交卷获取</small></div>';
+  } else {
+    const typeCount = {};
+    data.items.forEach(item => { const t = item.split('+')[0].trim(); typeCount[t] = (typeCount[t] || 0) + 1; });
+    const topTypes = Object.entries(typeCount).sort((a, b) => b[1] - a[1]).slice(0, 5);
+    html += '<div class="stats">';
+    html += `<div class="stat-item">📝 总题数 <strong>${data.items.length}</strong></div>`;
+    html += '<div class="stat-item">🔝 ';
+    topTypes.forEach(([t, c]) => { html += `<span class="tag">${t}×${c}</span>`; });
+    html += '</div></div>';
+
+    html += '<div class="grid">';
+    data.items.forEach((item, i) => {
+      const hidden = keyword && !item.toLowerCase().includes(keyword) ? ' hidden' : '';
+      html += `<div class="card${hidden}"><div class="card-num">${i+1}</div><div class="card-text">${item}</div></div>`;
+    });
+    html += '</div>';
+  }
+  area.innerHTML = html;
+}
+
+function filterCards() {
+  if (currentKey) renderContent(currentKey);
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+    const papers = getPapers();
+    const idx = papers.indexOf(currentKey);
+    const next = e.key === 'ArrowRight' ? Math.min(idx + 1, papers.length - 1) : Math.max(idx - 1, 0);
+    if (next !== idx) switchPaper(papers[next]);
+  }
+});
+
+buildTabs();
+</script>
 </body>
 </html>
