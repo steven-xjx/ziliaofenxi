@@ -2,44 +2,38 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>2026执法 资料分析 题目+解析</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026执法 资料分析</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#333;padding:20px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;background:#f0f2f5;color:#333;padding:16px}
 .container{max-width:900px;margin:0 auto}
-h1{text-align:center;color:#1a73e8;margin-bottom:8px;font-size:20px}
-.subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:24px}
-.card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid #e8ecf0;box-shadow:0 1px 4px rgba(0,0,0,.04)}
-.card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0}
+h1{text-align:center;color:#1a73e8;margin-bottom:4px;font-size:20px}
+.subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:20px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;border:1px solid #e8ecf0;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid #f0f0f0}
 .card-num{width:34px;height:34px;border-radius:8px;background:#1a73e8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
-.tag-type{background:#e8f0fe;color:#1a73e8;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
-.tag-ans{background:#e6f7e6;color:#1c8a2e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;margin-left:auto}
-.question{font-size:14px;color:#333;line-height:1.8;margin-bottom:14px;white-space:pre-wrap}
-.answer-bar{background:#f6ffed;border:1px solid #b7eb8f;border-radius:8px;padding:10px 16px;margin-bottom:14px;font-size:14px}
-.answer-bar strong{color:#1c8a2e}
-.solution{font-size:14px;color:#444;line-height:1.8;white-space:pre-wrap;background:#fafbfc;padding:14px;border-radius:8px;border:1px solid #e8ecf0}
+.tag-type{background:#e8f0fe;color:#1a73e8;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500}
+.tag-ans{background:#e6f7e6;color:#1c8a2e;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:600}
+.question{font-size:14px;color:#333;line-height:2;margin-bottom:12px;white-space:pre-wrap;padding:10px 14px;background:#fafbfc;border-radius:8px;border:1px solid #e8ecf0}
+.solution{font-size:14px;color:#444;line-height:1.8;white-space:pre-wrap;padding:12px 14px;background:#fff;border-radius:8px;border:1px solid #e8ecf0;border-left:3px solid #1a73e8}
 .solution-title{color:#1a73e8;font-size:13px;font-weight:600;margin-bottom:6px}
-@media(max-width:600px){.card{padding:16px}.question,.solution{font-size:13px}}
+@media(max-width:600px){.card{padding:14px}.question,.solution{font-size:13px}}
 </style>
 </head>
 <body>
 <div class="container">
-<h1>📊 2026执法 · 资料分析</h1>
-<p class="subtitle">题目 + 答案 + 解析 | 共20题</p>
+<h1>__TITLE__ · 资料分析</h1>
+<p class="subtitle">完整题目 + 答案 + 解析 | 共20题</p>
 <div id="cards"></div>
 </div>
 <script>
-var DATA = ;
-var html='';
-DATA.forEach(function(d){
-  html+='<div class="card">';
-  html+='<div class="card-head"><div class="card-num">'+d.q+'</div><span class="tag-type">📋 '+d.kaodian+'</span><span class="tag-ans">✅ 答案：'+d.answer+'</span></div>';
-  html+='<div class="question">'+d.question+'</div>';
-  html+='<div class="solution"><div class="solution-title">📝 解析</div>'+d.solution+'</div>';
-  html+='</div>';
+var D=[{"q":111,"question":"单选题\n\n2024年上半年，中国医药保健品进出口贸易顺差（出口额-进口额）比上年同期：\n\nA\n\n下降了20%以上\n\nB\n\n下降了不到20%\n\nC\n\n上升了20%以上\n\nD\n\n上升了不到20%","answer":"C","solution":"根据题干“2024年上半年······顺差（出口额-进口额）比上年同期”，结合选项为百分数，且出口额=进口额+顺差，可判定本题为混合增长率问题。定位统计表可得：2024年上半年，中国医药保健品进、出口额分别为","kaodian":"混合增长率"},{"q":112,"question":"单选题\n\n2024年上半年，中药提取物出口额占医药保健品出口总额的比重比上年同期：\n\nA\n\n上升了3个百分点以上\n\nB\n\n下降了3个百分点以上\n\nC\n\n上升了不到3个百分点\n\nD\n\n下降了不到3个百分点","answer":"D","solution":"根据题干“2024年上半年······占······的比重比上年同期”，结合选项为上升了/下降了+百分点，可判定本题为两期比重问题。定位统计表可得：2024年上半年中国医药保健品出口总额为","kaodian":"两期比重"},{"q":113,"question":"单选题\n\n表中所列医药保健品12个小类中，2024年上半年进出口总额同比上升的有几类？\n\nA\n\n7\n\nB\n\n6\n\nC\n\n5\n\nD\n\n4","answer":"A","solution":"根据题干“······2024年上半年······同比上升的有几类”，结合材料给出2024年上半年各小类医药保健品进口额、出口额及分别的同比增速，可判定本题为混合增长率问题。定位统计表可得2024年上半年，医药保健品12个小类进口额、出口额及分别的同比增速。根据混合增长率口诀“混合居中不正中，偏向基期较大的（一般用现期代替）”，观察可知中成药、保健品、西药原料、生化药、保健康复用品、口腔设备与材料这6类的进、出口额同比增速均大于0，则进出口总额同比增速也大于0，则同比上升，均满足；中药材及饮片、医用敷料进、出口额同比增速均小于0，则进出口总额同比增速也小于0，则同比下降，均不满足；其余类别进、出口额同比增速一正一负，其中提取物：现期量出口额14.92亿美元>进口额3.58亿美元，则，即r<0，则同比下降，不满足；西成药：现期量进口额","kaodian":"混合增长率"},{"q":114,"question":"单选题\n\n将2024年上半年①���用敷料②一次性耗材③保健康复用品④口腔设备与材料进口额同比增量从高到低排序正确的是：\n\nA\n\n③④①②\n\nB\n\n③④②①\n\nC\n\n④③①②\n\nD\n\n④③②①","answer":"C","solution":"根据题干“······2024年上半年······同比增量从高到低排序······”，可判定本题为增长量比较问题。定位表格可得：2024年上半年，医用敷料、一次性耗材、保健康复用品、口腔设备与材料的进口额分别为2.60亿美元、19.55亿美元、9.04亿美元、7.31亿美元，同比增速分别为-8.34%、-3.05%、9.62%、14.27%。根据公式：增长量，则以上四类医疗器械进口额的同比增量分别为：①医用敷料：亿美元；②一次性耗材：亿美元；③保健康复用品：亿美元；④口腔设备与材料：亿美元。比较可知，同比增量从高到低排序正确的是：④③①②。\n\n故正确答案为C。","kaodian":"增长量比较"},{"q":115,"question":"单选题\n\n以下饼图中，最能准确反映2024年上半年中国西药类进出口总额中，西药原料（白色）、西成药（横线）和生化药（黑色）占比关系的是：\n\nA\n\nB\n\nC\n\nD","answer":"D","solution":"根据题干“······最能准确反映2024年上半年······占比关系的是”，结合材料时间为2024年上半年，可判定本题为现期比重问题。定位统计表可知：2024年上半年，西药原料出口额为","kaodian":"现期比重"},{"q":116,"question":"单选题\n\n2024年，我国企业发明专利产业化平均收益比上年增长约多少万元/件？\n\nA\n\n60\n\nB\n\n50\n\nC\n\n40\n\nD\n\n30","answer":"C","solution":"根据题干“2024年······比上年增长约多少万元/件”，可判定本题为增长量计算问题。定位文字材料可得：2024年，我国企业发明专利产业化平均收益为","kaodian":"增长量计算"},{"q":117,"question":"单选题\n\n将我国企业的发明专利、实用新型专利、外观设计专利按产业化率从高到低排序，则2020~2023年中次序与2024年次序一致的年份有几个？\n\nA\n\n0\n\nB\n\n1\n\nC\n\n2\n\nD\n\n3","answer":"B","solution":"定位统计表可得2020-2024年，我国企业的发明专利、实用新型专利、外观设计专利产业化率。将我国企业的各类专利按产业化率从高到低排序分别为：\n\n2020年，外观设计专利（51.6%）、发明专利（44.9%）、实用新型专利（42.0%）；\n\n2021年，外观设计专利（52.3%）、发明专利（46.8%）、实用新型专利（46.2%）；\n\n2022年，外观设计专利（58.7%）、发明专利（48.1%）、实用新型专利（44.9%）；\n\n2023年，外观设计专利（66.0%）、实用新型专利（57.1%）、发明专利（51.3%）；\n\n2024年，外观设计专利（63.5%）、实用新型专利（54.9%）、发明专利（53.3%）。\n\n则2020~2023年中次序与2024年次序一致的年份是2023年，共1个。\n\n故正确答案为B。","kaodian":"综合资料"},{"q":118,"question":"单选题\n\n2024年，我国大型企业平均每拥有1件有效发明专利产生的专利产业化收益约是我国中型企业的多少倍？\n\nA\n\n0.8\n\nB\n\n1.0\n\nC\n\n1.3\n\nD\n\n1.6","answer":"A","solution":"根据题干“2024年······约是······的多少倍”，结合材料时间为2024年，可判定本题为现期倍数问题。定位文字材料可得：2024年，我国中型企业发明专利产业化平均收益（平均每件已产业化的有效专利产生的收益）为","kaodian":"现期倍数"},{"q":119,"question":"单选题\n\n资料所列13个行业中，2024年企业发明专利产业化率同比增量超过3个百分点的有几个？\n\nA\n\n5\n\nB\n\n6\n\nC\n\n7\n\nD\n\n8","answer":"C","solution":"根据题干“2024年······同比增量超过······有几个”，可判定本题为增长量计算问题。定位统计图可知2023年及2024年我国不同行业企业发明专利产业化率。根据公式：增长量=现期量-基期量，本题所求企业发明专利产业化率的增长量，2024年企业发明专利产业化率相当于现期量，2023年企业发明专利产业化率相当于基期量，故2024年各行业企业发明专利产业化率的同比增量如下：\n\n研究和试验发展：32.5%-31.9%=0.6个百分点，不符合；\n\n专业技术服务业：34.2%-29.6%=4.6个百分点，符合；\n\n医药制造业：46.8%-43.0%=3.8个百分点，符合；\n\n计算机、通信和其他电子设备制造业：50.8%<52.2%，即同比减少，不符合；\n\n软件和信息技术服务业：54.9%<55.3%，即同比减少，不符合；\n\n汽车制造业：62.2%<63.3%，即同比减少，不符合；\n\n非金属矿物制造业：63.7%-57.8%=5.9个百分点，符合；\n\n橡胶和塑料制品业：63.8%-62.5%=1.3个百分点，不符合；\n\n化学原料和化学制品制造业：64.4%-57.4%=7.0个百分点，符合；\n\n金属制品业：64.9%-58.1%=6.8个百分点，符合；\n\n通用设备制造业：67.5%-61.6%=5.9个百分点，符合；\n\n专用设备制造业：68.9%-66.9%=2.0个百分点，不符合；\n\n电气机械和器材制造业：71.2%-63.8%=7.4个百分点，符合。\n\n综上，资料所列13个行业中，2024年企业发明专利产业化率同比增量超过3个百分点的有7个。\n\n故正确答案为C。","kaodian":"增长量计算"},{"q":120,"question":"单选题\n\n在①2023年未来产业领域企业发明专利产业化平均收益、②2024年小微企业发明专利产业化总体平均收益、③2023年金属制品业大型企业发明专利产业化率3项指标中，能够从上述资料中推出的有几项？\n\nA\n\n3项\n\nB\n\n2项\n\nC\n\n1项\n\nD\n\n0项","answer":"D","solution":"①定位文字材料可得：2024年，我国未来产业领域的企业发明专利产业化平均收益为1","kaodian":"综合分析"},{"q":121,"question":"单选题\n\n2021~2024年，我国科幻产业累计营收额约是2017~2020年的多少倍？\n\nA\n\n2.5\n\nB\n\n2.2\n\nC\n\n1.9\n\nD\n\n1.6","answer":"B","solution":"根据题干“2021~2024年······约是2017~2020年的多少倍”，结合材料已给出2017~2024年的相关数据，可判定本题为现期倍数问题。定位统计图1可得2017~2024年我国科幻产业营收额，则所求倍数倍。\n\n故正确答案为B。","kaodian":"现期倍数"},{"q":122,"question":"单选题\n\n如保持2024年同比增量不变，则2026-2030年，我国科幻游戏产业累计营收将在以下哪个范围内？\n\nA\n\n不到4500亿元\n\nB\n\n4500亿～4750亿元之间\n\nC\n\n超过5000亿元\n\nD\n\n4750亿～5000亿元之间","answer":"D","solution":"根据题干“如保持2024年同比增量不变，则2026-2030年······将在以下哪个范围内”，结合材料时间为2022-2024年，可判定本题为现期计算问题。定位统计图2可得：2023年、2024年我国科幻游戏产业营收分别为：","kaodian":"现期计算"},{"q":123,"question":"单选题\n\n我国科幻产业五大领域中，2024年营收额同比增速快于2023年水平的有几个？\n\nA\n\n4\n\nB\n\n3\n\nC\n\n2\n\nD\n\n1","answer":"C","solution":"根据题干“······2024年······同比增速快于2023年水平······”，可判定本题为一般增长率比较问题。定位统计图2可得：2024年我国科幻产业五大领域营收额分别为：35.1亿元、67.1亿元、","kaodian":"一般增长率"},{"q":124,"question":"单选题\n\n2022~2024年，科幻文旅营收额占科幻产业营收额的比重超过20%的年份仅包括：\n\nA\n\n2023和2024年\n\nB\n\n2023年\n\nC\n\n2022和2024年\n\nD\n\n2022年","answer":"A","solution":"根据题干“2022~2024年······占······的比重超过20%的年份仅包括”，结合材料时间为2022~2024年，可判定本题为现期比重问题。定位图1可得：2022~2024年我国科幻产业营收额分别为","kaodian":"现期比重"},{"q":125,"question":"单选题\n\n以下柱状图反映了哪一时间段内，我国科幻产业营收额同比增量的变化情况（横轴位置表示增量为0）？\n\nA\n\n2021~2024年\n\nB\n\n2020~2023年\n\nC\n\n2019~2022年\n\nD\n\n2018~2021年","answer":"D","solution":"根据题干“······我国科幻产业营收额同比增量的变化情况······”，可判定本题为增长量比较问题。定位图1可知2017~2024年我国科幻产业各年度营收额，根据公式：增长量=现期量-基期量，则选项中各年份增长量分别为：\n\nA项：2021年，","kaodian":"增长量比较"},{"q":126,"question":"单选题\n\n2025年清明假期、“五一”假期和端午假期，Y省接待游客总人次数比上年增长了：\n\nA\n\n超过1400万人次\n\nB\n\n1100万~1400万人次之间\n\nC\n\n800万~1100万人次之间\n\nD\n\n不到800万人次","answer":"B","solution":"根据题干“······接待游客总人次数比上年增长了”，结合选项带单位，可判定本题为增长量计算问题。定位文字材料第一、二、三段可得：2025年清明假期，Y省接待游客2","kaodian":"增长量计算"},{"q":127,"question":"单选题\n\n2025年“五一”假期，Y省平均每接待1人次游客产生的旅游收入比清明假期：\n\nA\n\n高10%以上\n\nB\n\n高不到10%\n\nC\n\n低10%以上\n\nD\n\n低不到10%","answer":"A","solution":"根据题干“2025年······平均每接待1人次游客产生的旅游收入比清明假期”，结合选项为高/低+百分数，可判定本题为平均数的增长率问题。定位材料第一、二段可得：2025年清明假期3天，Y省接待游客2","kaodian":"文字资料"},{"q":128,"question":"单选题\n\n将Y省2024年清明假期、“五一”假期和端午假期日均实现旅游收入从高到低排列，以下正确的是：\n\nA\n\n“五一”、端午、清明\n\nB\n\n清明、“五一”、端午\n\nC\n\n“五一”、清明、端午\n\nD\n\n清明、端午、“五一”","answer":"C","solution":"根据题干“将Y省2024年······日均······”，结合材料时间为2025年，可判定本题为基期平均数问题。定位文字材料第一、二、三段可得：2025年清明假期3天······实现旅游收入","kaodian":"基期平均数"},{"q":129,"question":"单选题\n\n2025年清明假期、“五一”假期和端午假期Y省接待的游客中，平均每万人次中有多少人次前往纳入监测的13家红色旅游经典景区旅游？\n\nA\n\n超过300人次\n\nB\n\n200~300人次之间\n\nC\n\n100~200人次之间\n\nD\n\n不到100人次","answer":"B","solution":"根据题干“2025年······平均每万人次······”，结合材料时间为2025年，可判定本题为现期平均数问题。定位文字材料第一、二、三段可得2025年清明假期、“五一”假期、端午假期Y省接待游客人次数以及纳入监测的13家红色旅游经典景区接待游客人次数。则题干所求人次，在B项范围内。\n\n故正确答案为B。","kaodian":"现期平均数"},{"q":130,"question":"单选题\n\n以下柱状图反映了2025年清明假期、“五一”假期和端午假期，Y省接待游客哪一指标的变化情况（横轴位置表示数值为0）？\n\nA\n\n纳入监测的13家红色旅游经典景区日均接待游客数同比增量\n\nB\n\n纳入监测的13家红色旅游经典景区日均接待游客数量\n\nC\n\n4A级及以上景区日均接待游客数同比增量\n\nD\n\n4A级及以上景区日均接待游客数量","answer":"A","solution":"根据题干“以下柱状图反映了2025年······Y省接待游客哪一指标的变化情况······”，结合选项中涉及日均接待游客数，可判定本题为平均数问题。定位材料第一、二、三段可得2025年清明假期、“五一”假期和端午假期的天数、Y省接待游客各指标数据和同比增长率。根据公式：平均数，增长量，可得Y省接待游客各指标的数据情况如下：\n\nA项，纳入监测的13家红色旅游经典景区日均接待游客数同比增量：清明假期，万人次；“五一”假期，万人次；端午假期，万人次，符合柱状图变化趋势，当选；\n\nB项，纳入监测的13家红色旅游经典景区日均接待游客数量：清明假期，万人次；端午假期，万人次。清明假期日均接待游客数量与端午假期几乎相等，不符合柱状图变化趋势，排除；\n\nC项，4A级及以上景区日均接待游客数同比增量：清明假期，万人次；“五一”假期，人次；端午假期，万人次。“五一”假期同比增量>端午假期同比增量，不符合柱状图变化趋势，排除；\n\nD项，4A级及以上景区日均接待游客数量：清明假期，万人次；“五一”假期，万人次；端午假期，万人次。“五一”假期日均接待游客数量>端午假期日均接待游客数量，不符合柱状图变化趋势，排除。\n\n故正确答案为A。","kaodian":"现期平均数"}];
+var h="";
+D.forEach(function(d){
+h+='<div class="card"><div class="card-head"><div class="card-num">'+d.q+'</div><span class="tag-type">'+d.kaodian+'</span><span class="tag-ans">答案:'+d.answer+'</span></div><div class="question">'+d.question+'</div><div class="solution"><div class="solution-title">解析</div>'+d.solution+'</div></div>';
 });
-document.getElementById('cards').innerHTML=html;
+document.getElementById("cards").innerHTML=h;
 </script>
 </body>
 </html>
