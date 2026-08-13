@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026执法 资料分析 题目+解析</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#333;padding:20px}
+.container{max-width:900px;margin:0 auto}
+h1{text-align:center;color:#1a73e8;margin-bottom:8px;font-size:20px}
+.subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:24px}
+.card{background:#fff;border-radius:12px;padding:24px;margin-bottom:16px;border:1px solid #e8ecf0;box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.card-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f0f0f0}
+.card-num{width:34px;height:34px;border-radius:8px;background:#1a73e8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0}
+.tag-type{background:#e8f0fe;color:#1a73e8;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
+.tag-ans{background:#e6f7e6;color:#1c8a2e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;margin-left:auto}
+.question{font-size:14px;color:#333;line-height:1.8;margin-bottom:14px;white-space:pre-wrap}
+.answer-bar{background:#f6ffed;border:1px solid #b7eb8f;border-radius:8px;padding:10px 16px;margin-bottom:14px;font-size:14px}
+.answer-bar strong{color:#1c8a2e}
+.solution{font-size:14px;color:#444;line-height:1.8;white-space:pre-wrap;background:#fafbfc;padding:14px;border-radius:8px;border:1px solid #e8ecf0}
+.solution-title{color:#1a73e8;font-size:13px;font-weight:600;margin-bottom:6px}
+@media(max-width:600px){.card{padding:16px}.question,.solution{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📊 2026执法 · 资料分析</h1>
+<p class="subtitle">题目 + 答案 + 解析 | 共20题</p>
+<div id="cards"></div>
+</div>
+<script>
+var DATA = ;
+var html='';
+DATA.forEach(function(d){
+  html+='<div class="card">';
+  html+='<div class="card-head"><div class="card-num">'+d.q+'</div><span class="tag-type">📋 '+d.kaodian+'</span><span class="tag-ans">✅ 答案：'+d.answer+'</span></div>';
+  html+='<div class="question">'+d.question+'</div>';
+  html+='<div class="solution"><div class="solution-title">📝 解析</div>'+d.solution+'</div>';
+  html+='</div>';
+});
+document.getElementById('cards').innerHTML=html;
+</script>
+</body>
+</html>
