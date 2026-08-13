@@ -7,62 +7,44 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:#f0f2f5;color:#333}
-.header{background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:16px 24px;text-align:center}
-.header h1{font-size:20px;font-weight:600}
-.header p{font-size:12px;opacity:.85;margin-top:2px}
-.container{max-width:1200px;margin:0 auto;padding:12px 16px}
-.cat-tabs{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
-.cat-tab{padding:5px 16px;border-radius:20px;cursor:pointer;font-size:12px;border:1.5px solid #d0d5dd;background:#fff;color:#666;transition:all .2s;user-select:none}
+.header{background:linear-gradient(135deg,#1a73e8,#1557b0);color:#fff;padding:18px 30px;text-align:center}
+.header h1{font-size:22px;font-weight:600}
+.header p{font-size:13px;opacity:.85;margin-top:4px}
+.container{max-width:1200px;margin:0 auto;padding:16px 20px}
+.cat-tabs{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.cat-tab{padding:6px 18px;border-radius:20px;cursor:pointer;font-size:13px;border:1.5px solid #d0d5dd;background:#fff;color:#666;transition:all .2s;user-select:none}
 .cat-tab:hover{border-color:#1a73e8;color:#1a73e8}
 .cat-tab.active{background:#1a73e8;color:#fff;border-color:#1a73e8}
-.year-label{font-size:11px;color:#999;margin:0 2px 4px;font-weight:600}
-.paper-tabs{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
-.paper-tab{padding:5px 12px;border-radius:6px;cursor:pointer;font-size:11.5px;border:1.5px solid #e0e0e0;background:#fff;transition:all .2s;user-select:none}
+.year-group{margin-bottom:6px}
+.year-label{font-size:12px;color:#999;margin:0 4px 6px;font-weight:600}
+.paper-tabs{display:flex;gap:5px;margin-bottom:16px;flex-wrap:wrap}
+.paper-tab{padding:7px 14px;border-radius:8px;cursor:pointer;font-size:12.5px;border:1.5px solid #e0e0e0;background:#fff;transition:all .2s;user-select:none}
 .paper-tab:hover{background:#e8f0fe;border-color:#1a73e8}
 .paper-tab.active{background:#1a73e8;color:#fff;border-color:#1a73e8;font-weight:600}
-.paper-title{font-size:16px;font-weight:700;color:#1a73e8;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid #e8f0fe;display:flex;align-items:center;gap:10px}
-.paper-title span{color:#999;font-weight:400;font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:6px}
-.card{background:#fff;border-radius:10px;padding:10px 12px;border:1px solid #e8ecf0;display:flex;align-items:center;gap:8px;cursor:pointer;transition:all .2s}
-.card:hover{box-shadow:0 2px 10px rgba(0,0,0,.08);border-color:#1a73e8;transform:translateY(-1px)}
-.card-num{width:28px;height:28px;border-radius:7px;background:#e8f0fe;color:#1a73e8;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0}
-.card-text{font-size:12.5px;color:#444;line-height:1.3}
-.stats{background:#fff;border-radius:10px;padding:12px 16px;margin-bottom:12px;border:1px solid #e8ecf0;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.stat-item{display:flex;align-items:center;gap:6px;font-size:13px;color:#666}
-.stat-item strong{color:#1a73e8;font-size:18px}
-.stat-item .tag{background:#e8f0fe;padding:2px 7px;border-radius:10px;font-size:11px;margin:0 1px}
-.search-box{margin-bottom:12px}
-.search-box input{width:100%;padding:8px 14px;border:1.5px solid #d0d5dd;border-radius:10px;font-size:13px;outline:none;transition:border-color .2s}
+.paper-title{font-size:18px;font-weight:700;color:#1a73e8;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid #e8f0fe;display:flex;align-items:center;gap:12px}
+.paper-title span{color:#999;font-weight:400;font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.card{background:#fff;border-radius:10px;padding:12px 14px;border:1px solid #e8ecf0;display:flex;align-items:center;gap:10px;transition:all .2s}
+.card:hover{box-shadow:0 2px 12px rgba(0,0,0,.08);border-color:#c5d5f0;transform:translateY(-1px)}
+.card-num{width:30px;height:30px;border-radius:8px;background:#e8f0fe;color:#1a73e8;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;flex-shrink:0}
+.card-text{font-size:13.5px;color:#444;line-height:1.4}
+.stats{background:#fff;border-radius:10px;padding:14px 18px;margin-bottom:14px;border:1px solid #e8ecf0;display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.stat-item{display:flex;align-items:center;gap:6px;font-size:14px;color:#666}
+.stat-item strong{color:#1a73e8;font-size:20px}
+.stat-item .tag{background:#e8f0fe;padding:2px 8px;border-radius:10px;font-size:12px;margin:0 1px}
+.search-box{margin-bottom:14px}
+.search-box input{width:100%;padding:10px 16px;border:1.5px solid #d0d5dd;border-radius:10px;font-size:14px;outline:none;transition:border-color .2s}
 .search-box input:focus{border-color:#1a73e8}
 .card.hidden{display:none}
-.empty{text-align:center;padding:50px;color:#999;font-size:14px}
-
-/* Modal */
-.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.5);z-index:1000;overflow-y:auto;padding:20px}
-.modal-overlay.show{display:flex;justify-content:center;align-items:flex-start}
-.modal{background:#fff;border-radius:16px;max-width:750px;width:100%;margin:20px auto;position:relative;box-shadow:0 8px 40px rgba(0,0,0,.15);overflow:hidden}
-.modal-close{position:absolute;top:12px;right:16px;width:32px;height:32px;border-radius:50%;border:none;background:#f0f0f0;color:#666;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;transition:all .2s}
-.modal-close:hover{background:#e0e0e0;color:#333}
-.modal-body{padding:24px}
-.modal-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #f0f0f0}
-.modal-num{width:36px;height:36px;border-radius:10px;background:#1a73e8;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;flex-shrink:0}
-.modal-tags{display:flex;gap:8px;flex-wrap:wrap}
-.modal-tag{background:#e8f0fe;color:#1a73e8;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:500}
-.modal-ans{background:#e6f7e6;color:#1c8a2e;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
-.question-box{font-size:14px;color:#333;line-height:2;white-space:pre-wrap;padding:14px 18px;background:#fafbfc;border-radius:10px;border:1px solid #e8ecf0;margin-bottom:14px}
-.solution-box{font-size:14px;color:#444;line-height:1.8;white-space:pre-wrap;padding:14px 18px;background:#fff;border-radius:10px;border:1px solid #e8ecf0;border-left:3px solid #1a73e8}
-.solution-box h4{color:#1a73e8;font-size:13px;margin-bottom:6px}
-
-@media(max-width:600px){.grid{grid-template-columns:1fr}.modal-body{padding:16px}.question-box,.solution-box{font-size:13px}}
+.empty{text-align:center;padding:60px;color:#999;font-size:15px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.header h1{font-size:18px}}
 </style>
 </head>
 <body>
-
 <div class="header">
   <h1>📊 资料分析题型分类汇总</h1>
-  <p>国考 2022-2026 · 江苏 2020-2025</p>
+  <p>国考 2022-2026 · 江苏 2020-2025 | 共 30 套试卷</p>
 </div>
-
 <div class="container">
   <div class="cat-tabs">
     <div class="cat-tab active" onclick="switchCat('all')">全部</div>
@@ -73,19 +55,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',s
   <div class="search-box"><input type="text" id="searchInput" placeholder="🔍 搜索题型关键词" oninput="filterCards()"></div>
   <div id="contentArea"></div>
 </div>
-
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">×</button>
-    <div class="modal-body" id="modalContent"></div>
-  </div>
-</div>
-
 <script>
-// 题型数据
-const DATA = {
+const DATA={
   '2026执法':{items:['混合增长率+统计表','两期比重+统计表','混合增长率+统计表','增长量比较+统计表','现期比重+统计表','增长量计算+综合资料','综合资料+排序类','现期倍数+综合资料','增长量计算+综合资料','综合分析+综合资料','现期倍数+综合资料','现期计算+综合资料','一般增长率+综合资料','现期比重+综合资料','增长量比较+综合资料','增长量计算+文字资料','文字资料+平均数的增长率','基期平均数+文字资料','现期平均数+文字资料','现期平均数+文字资料+平均数的增长量']},
-  '2026地市':{items:['基期和差','两期比重','增长量比较变形','增长量比较','占比+图','量级','倍数+阅读理解','比重+加和','占比和差','阅读理解','加和+倍数','增长量+乘积','增速比较','占比计算','增长量+图','占比计算','混合增长率','占比+图','基期和差','阅读理解','大小比较','两期比重','加和']},
+  '2026地市':{items:['基期和差','两期比重','增长量比较变形','增长量比较','占比+图','量级','倍数+阅读理解','比重+加和','占比和差','阅读理解','加和+倍数','增长量+乘积','增速比较','占比计算','增长量+图','占比计算','混合增长率','占比+图','基期和差','阅读理解']},
   '2026副省':{items:['加和','混合增长率','平均数+比较大小','基期和差','平均数的增长率+比较大小','比较大小+图','比重+加和','比重+加和','比重+比较大小+增长率','环比增长量+图']},
   '2025执法':{items:['阅读理解+加减计算','比例关系','增速比较','比重+比较','增长量+图','两期平均数','两期比重','平均数计算','平均数增长率+比较','比重+比较']},
   '2025地市':{items:['比重+加和','比重+比较','平均数计算','比重+加和','占比+图','两期比重','加和+倍数','倍数计算','增长量*n','增长量+图','加和+比较','平均数比较','平均数比较','平均数计算','倍数计算','占比+图','比例关系','增长量+比重','两期比重','比例关系']},
@@ -95,59 +68,19 @@ const DATA = {
   '2024副省':{items:['比重+比较','比重+加和','比重+加和','比重+加和','加和+比较','占比计算','增速比较','倍数计算','混合增长率','平均数比较']},
   '2025江苏A':{items:['比例关系','尾数法','基期计算','年均增长量','基期计算','年均增速','阅读理解+占比','增速计算','年均增长量','占比计算','增速比较','增速计算','两期平均数的变形','比较','和差+比较','占比计算','增长量','占比+图','两期平均数的性质','基期计算']},
 };
-
-// 2026执法 完整解析数据
-const SOLUTIONS = {
-  '2026执法': [
-    {q:111,a:"C",k:"混合增长率",question:"单选题\n\n2024年上半年，中国医药保健品进出口贸易顺差（出口额-进口额）比上年同期：\n\nA\n\n下降了20%以上\n\nB\n\n下降了不到20%\n\nC\n\n上升了20%以上\n\nD\n\n上升了不到20%",solution:"根据题干"2024年上半年······顺差（出口额-进口额）比上年同期"，结合选项为百分数，且出口额=进口额+顺差，可判定本题为混合增长率问题。\n定位统计表可得：2024年上半年，中国医药保健品进、出口额及同比增速。\n根据混合增长率口诀：混合后居中，偏向基期量大的。\n计算得2024年上半年顺差同比增速>20%，对应C项。"},
-    {q:112,a:"D",k:"两期比重",question:"单选题\n\n2024年上半年，中药提取物出口额占医药保健品出口总额的比重比上年同期：\n\nA\n\n上升了3个百分点以上\n\nB\n\n下降了3个百分点以上\n\nC\n\n上升了不到3个百分点\n\nD\n\n下降了不到3个百分点",solution:"根据题干"2024年上半年······占······的比重比上年同期"，结合选项为上升/下降+百分点，可判定为两期比重问题。\n定位统计表：2024年上半年中药提取物出口额及增速、医药保健品出口总额及增速。\n根据两期比重公式：比重变化=现期比重-基期比重=a/A-b/B。\n计算得比重下降超过3个百分点，对应D项。"},
-    {q:113,a:"A",k:"混合增长率",question:"单选题\n\n表中所列医药保健品12个小类中，2024年上半年进出口总额同比上升的有几类？\n\nA\n\n7\n\nB\n\n6\n\nC\n\n5\n\nD\n\n4",solution:"根据题干"······2024年上半年······同比上升的有几类"，结合材料给出各小类医药保健品进口额、出口额及分别的同比增速，可判定本题为混合增长率问题。\n进出口总额=进口额+出口额，增长率介于进口增速和出口增速之间。\n定位统计表各小类进口额增速和出口额增速，若两者均>0（或混合后>0），则该类进出口总额同比上升。\n经统计共有7类满足条件，对应A项。"},
-    {q:114,a:"D",k:"增长量比较",question:"单选题\n\n将2024年上半年①医用敷料②一次性耗材③保健康复用品④口腔设备与材料进口额同比增量从高到低排序正确的是：\n\nA\n\n③④①②\n\nB\n\n③④②①\n\nC\n\n④③①②\n\nD\n\n④③②①",solution:"根据题干"进口额同比增量从高到低排序"，可判定为增长量比较问题。\n定位统计表①医用敷料②一次性耗材③保健康复用品④口腔设备与材料进口额及增速。\n根据增长量=现期量×增长率/(1+增长率)，分别计算四类进口额增量。\n排序为④>③>②>①，对应D项。"},
-    {q:115,a:"B",k:"现期比重",question:"单选题\n\n以下饼图中，最能准确反映2024年上半年中国西药类进出口总额中，西药原料（白色）、西成药（横线）和生化药（黑色）占比关系的是：\n\nA\n\nB\n\nC\n\nD",solution:"根据题干"最能准确反映······占比关系"，可判定为现期比重问题。\n定位统计表西药类数据：西药原料、西成药、生化药的进出口总额。\n计算三者占比：西药原料占比最大（约60%），西成药次之（约30%），生化药最小（约10%）。\n对应饼图B项。"},
-    {q:116,a:"B",k:"增长量计算",question:"单选题\n\n2024年，我国企业发明专利产业化平均收益比上年增长约多少万元/件？\n\nA\n\n60\n\nB\n\n50\n\nC\n\n40\n\nD\n\n30",solution:"根据题干"2024年······比上年增长约多少万元/件"，可判定为增长量计算问题。\n定位材料：2024年企业发明专利产业化平均收益为869.5万元/件，较上年增长4.8%。\n增长量=869.5×4.8%/(1+4.8%)≈40万元/件。\n对应B项。"},
-    {q:117,a:"C",k:"排序类",question:"单选题\n\n将我国企业的发明专利、实用新型专利、外观设计专利按产业化率从高到低排序，则2020~2023年中次序与2024年次序一致的年份有几个？\n\nA\n\n0\n\nB\n\n1\n\nC\n\n2\n\nD\n\n3",solution:"根据题干"将······按产业化率从高到低排序"，可判定为排序类问题。\n定位图表：2024年三种专利产业化率排序。\n对比2020-2023年各年数据，统计与2024年排序一致的年份。\n有2个年份排序一致，对应C项。"},
-    {q:118,a:"D",k:"现期倍数",question:"单选题\n\n2024年，我国大型企业平均每拥有1件有效发明专利产生的专利产业化收益约是我国中型企业的多少倍？\n\nA\n\n0.8\n\nB\n\n1.0\n\nC\n\n1.3\n\nD\n\n1.6",solution:"根据题干"······大型企业······约是中型企业的多少倍"，可判定为现期倍数问题。\n定位材料：大型企业发明专利产业化平均收益953.9万元/件，中型企业991.9万元/件。\n需结合有效发明专利数量计算"平均每拥有1件"的收益。\n计算结果约为1.6倍，对应D项。"},
-    {q:119,a:"C",k:"增长量计算",question:"单选题\n\n资料所列13个行业中，2024年企业发明专利产业化率同比增量超过3个百分点的有几个？\n\nA\n\n5\n\nB\n\n6\n\nC\n\n7\n\nD\n\n8",solution:"根据题干"······同比增量超过3个百分点的有几个"，可判定为增长量计算问题。\n定位图表13个行业2024年与2023年企业发明专利产业化率。\n计算各行业同比增量，统计超过3个百分点的行业数。\n共有7个行业满足条件，对应C项。"},
-    {q:120,a:"B",k:"综合分析",question:"单选题\n\n在①2023年未来产业领域企业发明专利产业化平均收益、②2024年小微企业发明专利产业化总体平均收益、③2023年金属制品业大型企业发明专利产业化率3项指标中，能够从上述资料中推出的有几项？\n\nA\n\n3项\n\nB\n\n2项\n\nC\n\n1项\n\nD\n\n0项",solution:"根据题干"能够从上述资料中推出的有几项"，可判定为综合分析问题。\n逐一分析：①2023年未来产业发明专利产业化平均收益：资料给出2024年数据及增速，可推出。\n②2024年小微企业发明专利产业化总体平均收益：资料给出小型企业752.4万元/件和微型企业260.1万元/件，但未给出各自数量，无法推出。\n③2023年金属制品业大型企业发明专利产业化率：资料未给出，无法推出。\n共2项可推出，对应B项。"},
-    {q:121,a:"A",k:"现期倍数",question:"单选题\n\n2021~2024年，我国科幻产业累计营收额约是2017~2020年的多少倍？\n\nA\n\n2.5\n\nB\n\n2.2\n\nC\n\n1.9\n\nD\n\n1.6",solution:"根据题干"2021~2024年······约是2017~2020年的多少倍"，可判定为现期倍数问题。\n定位图表2021-2024年和2017-2020年各年科幻产业营收额。\n分别计算两个时间段累计营收，再求比值。\n计算结果约为2.5倍，对应A项。"},
-    {q:122,a:"D",k:"现期计算",question:"单选题\n\n如保持2024年同比增量不变，则2026-2030年，我国科幻游戏产业累计营收将在以下哪个范围内？\n\nA\n\n不到4500亿元\n\nB\n\n4500亿～4750亿元之间\n\nC\n\n超过5000亿元\n\nD\n\n4750亿～5000亿元之间",solution:"根据题干"如保持2024年同比增量不变，则2026-2030年······累计营收"，可判定为现期计算问题。\n定位图表2024年科幻游戏产业营收及同比增量。\n以2024年为基期，按固定增量推算2026-2030年各年营收，求和。\n累计营收在4750亿~5000亿元之间，对应D项。"},
-    {q:123,a:"B",k:"一般增长率",question:"单选题\n\n我国科幻产业五大领域中，2024年营收额同比增速快于2023年水平的有几个？\n\nA\n\n4\n\nB\n\n3\n\nC\n\n2\n\nD\n\n1",solution:"根据题干"2024年营收额同比增速快于2023年水平的有几个"，可判定为一般增长率比较问题。\n定位图表五大领域2023年和2024年营收额。\n分别计算各领域2023年增速和2024年增速，比较大小。\n共有3个领域2024年增速快于2023年，对应B项。"},
-    {q:124,a:"A",k:"现期比重",question:"单选题\n\n2022~2024年，科幻文旅营收额占科幻产业营收额的比重超过20%的年份仅包括：\n\nA\n\n2023和2024年\n\nB\n\n2023年\n\nC\n\n2022和2024年\n\nD\n\n2022年",solution:"根据题干"2022~2024年······比重超过20%的年份"，可判定为现期比重问题。\n定位图表2022-2024年科幻文旅营收额和科幻产业总营收额。\n分别计算各年占比，统计超过20%的年份。\n2023年和2024年占比超过20%，对应A项。"},
-    {q:125,a:"C",k:"增长量比较",question:"单选题\n\n以下柱状图反映了哪一时间段内，我国科幻产业营收额同比增量的变化情况（横轴位置表示增量为0）？\n\nA\n\n2021~2024年\n\nB\n\n2020~2023年\n\nC\n\n2019~2022年\n\nD\n\n2018~2021年",solution:"根据题干"以下柱状图反映了哪一时间段内······同比增量的变化情况"，可判定为增长量比较问题。\n定位图表各年科幻产业营收额，计算同比增量。\n观察柱状图变化趋势（先升后降再升），匹配各时间段。\n2019~2022年趋势匹配，对应C项。"},
-    {q:126,a:"B",k:"增长量计算",question:"单选题\n\n2025年清明假期、"五一"假期和端午假期，Y省接待游客总人次数比上年增长了：\n\nA\n\n超过1400万人次\n\nB\n\n1100万~1400万人次之间\n\nC\n\n800万~1100万人次之间\n\nD\n\n不到800万人次",solution:"根据题干"······接待游客总人次数比上年增长了"，结合选项带单位，可判定为增长量计算问题。\n定位材料三个假期游客人次及同比增长率。\n分别计算三个假期增长量，求和。\n总增长量在1100万~1400万人次之间，对应B项。"},
-    {q:127,a:"A",k:"平均数的增长率",question:"单选题\n\n2025年"五一"假期，Y省平均每接待1人次游客产生的旅游收入比清明假期：\n\nA\n\n高10%以上\n\nB\n\n高不到10%\n\nC\n\n低10%以上\n\nD\n\n低不到10%",solution:"根据题干"2025年······平均每接待1人次游客产生的旅游收入比清明假期"，结合选项高/低+百分数，可判定为平均数的增长率问题。\n定位材料：五一假期收入295亿元/4608.2万人次，清明假期收入107.8亿元/2110.5万人次。\n分别计算两次人均旅游收入，求增长率。\n五一假期人均收入比清明高25%以上，对应A项。"},
-    {q:128,a:"C",k:"基期平均数",question:"单选题\n\n将Y省2024年清明假期、"五一"假期和端午假期日均实现旅游收入从高到低排列，以下正确的是：\n\nA\n\n"五一"、端午、清明\n\nB\n\n清明、"五一"、端午\n\nC\n\n"五一"、清明、端午\n\nD\n\n清明、端午、"五一"",solution:"根据题干"将Y省2024年······日均实现旅游收入从高到低排列"，可判定为基期平均数问题。\n定位材料2025年各假期旅游收入及同比增速，计算2024年各假期旅游收入。\n再除以各假期天数得日均收入，排序。\n五一假期>清明假期>端午假期，对应C项。"},
-    {q:129,a:"B",k:"现期平均数",question:"单选题\n\n2025年清明假期、"五一"假期和端午假期Y省接待的游客中，平均每万人次中有多少人次前往纳入监测的13家红色旅游经典景区旅游？\n\nA\n\n超过300人次\n\nB\n\n200~300人次之间\n\nC\n\n100~200人次之间\n\nD\n\n不到100人次",solution:"根据题干"2025年······平均每万人次中有多少人次前往纳入监测的13家红色旅游经典景区"，可判定为现期平均数问题。\n定位材料三个假期的游客总人次和红色旅游景区接待人次。\n计算接待人次/游客总人次×10000。\n结果在200~300人次之间，对应B项。"},
-    {q:130,a:"A",k:"平均数的增长量",question:"单选题\n\n以下柱状图反映了2025年清明假期、"五一"假期和端午假期，Y省接待游客哪一指标的变化情况（横轴位置表示数值为0）？\n\nA\n\n纳入监测的13家红色旅游经典景区日均接待游客数同比增量\n\nB\n\n纳入监测的13家红色旅游经典景区日均接待游客数量\n\nC\n\n4A级及以上景区日均接待游客数同比增量\n\nD\n\n4A级及以上景区日均接待游客数量",solution:"根据题干"以下柱状图反映了2025年······Y省接待游客哪一指标的变化情况"，可判定为平均数增长量问题。\n定位材料各假期各指标数据，计算日均值及同比增量。\n红色旅游经典景区日均接待游客数同比增量：清明<五一<端午，且中间的五一假期数值最大，符合柱状图趋势。\n对应A项。"}
-  ]
+const ORDER={
+  guokao:['2026执法','2026地市','2026副省','2025执法','2025地市','2025副省','2024执法','2024地市','2024副省','2023执法','2023地市','2023副省','2022执法','2022地市','2022副省'],
+  jiangsu:['2025江苏A','2025江苏B','2025江苏C','2024江苏A','2024江苏B','2024江苏C','2023江苏A','2023江苏B','2022江苏A','2022江苏B','2022江苏C','2021江苏A','2021江苏B','2021江苏C','2020江苏C']
 };
-
-const ORDER = {
-  guokao: ['2026执法','2026地市','2026副省','2025执法','2025地市','2025副省','2024执法','2024地市','2024副省','2023执法','2023地市','2023副省','2022执法','2022地市','2022副省'],
-  jiangsu: ['2025江苏A','2025江苏B','2025江苏C','2024江苏A','2024江苏B','2024江苏C','2023江苏A','2023江苏B','2022江苏A','2022江苏B','2022江苏C','2021江苏A','2021江苏B','2021江苏C','2020江苏C']
-};
-
-let currentCat='all', currentKey=null;
-
-function getPapers(){
-  if(currentCat==='all') return [...ORDER.guokao,...ORDER.jiangsu];
-  return ORDER[currentCat];
-}
-
-function switchCat(cat){
-  currentCat=cat;
-  document.querySelectorAll('.cat-tab').forEach(t => t.classList.toggle('active', t.textContent === (cat==='all'?'全部':cat==='guokao'?'国考':'江苏')));
-  buildTabs();
-}
-
+let currentCat='all',currentKey=null;
+function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu]:ORDER[currentCat];}
+function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':'江苏')));buildTabs();}
 function buildTabs(){
-  const tabs=document.getElementById('paperTabs');
-  const papers=getPapers();
-  const groups={};
+  const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
   papers.forEach(k=>{const yr=k.match(/^\d{4}/)[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
   tabs.innerHTML='';
   Object.entries(groups).reverse().forEach(([yr,keys])=>{
-    const gDiv=document.createElement('div');gDiv.style.marginBottom='6px';
+    const gDiv=document.createElement('div');gDiv.className='year-group';
     const lbl=document.createElement('div');lbl.className='year-label';lbl.textContent=yr;gDiv.appendChild(lbl);
     keys.forEach(k=>{
       const tab=document.createElement('span');tab.className='paper-tab';
@@ -155,68 +88,33 @@ function buildTabs(){
       tab.textContent=short;tab.onclick=()=>switchPaper(k);gDiv.appendChild(tab);
     });tabs.appendChild(gDiv);
   });
-  if(papers.length>0) switchPaper(papers[0]);
+  if(papers.length>0)switchPaper(papers[0]);
 }
-
 function switchPaper(key){
   currentKey=key;
-  document.querySelectorAll('.paper-tab').forEach(t => t.classList.toggle('active', t.textContent === key.replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22')));
+  document.querySelectorAll('.paper-tab').forEach(t=>t.classList.toggle('active',t.textContent===key.replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22')));
   renderContent(key);
 }
-
 function renderContent(key){
-  const area=document.getElementById('contentArea');
-  const data=DATA[key]||{items:[]};
-  const keyword=document.getElementById('searchInput').value.trim().toLowerCase();
-  let html=`<div class="paper-title">${key}<span>${data.items.length||0}题</span></div>`;
+  const data=DATA[key]||{items:[]},keyword=document.getElementById('searchInput').value.trim().toLowerCase();
+  let html='<div class="paper-title">'+key+'<span>'+(data.items.length||0)+'题</span></div>';
   if(data.items.length===0){html+='<div class="empty">📭 待提取</div>';}
   else{
     const tc={};data.items.forEach(i=>{const t=i.split('+')[0].trim();tc[t]=(tc[t]||0)+1;});
     const top=Object.entries(tc).sort((a,b)=>b[1]-a[1]).slice(0,5);
     html+='<div class="stats"><div class="stat-item">📝 <strong>'+data.items.length+'</strong>题</div><div class="stat-item">🔝 ';
-    top.forEach(([t,c])=>{html+=`<span class="tag">${t}×${c}</span>`;});
+    top.forEach(([t,c])=>{html+='<span class="tag">'+t+'×'+c+'</span>';});
     html+='</div></div><div class="grid">';
     data.items.forEach((item,i)=>{
       const hidden=keyword&&!item.toLowerCase().includes(keyword)?' hidden':'';
-      html+=`<div class="card${hidden}" onclick="openDetail('${key}',${i})"><div class="card-num">${i+1}</div><div class="card-text">${item}</div></div>`;
+      html+='<div class="card'+hidden+'"><div class="card-num">'+(i+1)+'</div><div class="card-text">'+item+'</div></div>';
     });
     html+='</div>';
   }
-  area.innerHTML=html;
+  document.getElementById('contentArea').innerHTML=html;
 }
-
-function openDetail(key, idx){
-  const data=SOLUTIONS[key];
-  const kd=DATA[key];
-  if(!data||!data[idx]||!kd){alert('该试卷解析数据尚未提取');return;}
-  const d=data[idx];
-  const modal=document.getElementById('modalContent');
-  modal.innerHTML=`
-    <div class="modal-header">
-      <div class="modal-num">${d.q}</div>
-      <div class="modal-tags">
-        <span class="modal-tag">📋 ${d.k}</span>
-        <span class="modal-ans">✅ ${d.a}</span>
-      </div>
-    </div>
-    <div class="question-box">${d.question}</div>
-    <div class="solution-box"><h4>📝 解析</h4>${d.solution}</div>
-  `;
-  document.getElementById('modalOverlay').classList.add('show');
-}
-
-function closeModal(e){
-  if(e&&e.target!==document.getElementById('modalOverlay')) return;
-  document.getElementById('modalOverlay').classList.remove('show');
-}
-
-function filterCards(){if(currentKey) renderContent(currentKey);}
-
-document.addEventListener('keydown',e=>{
-  if(document.getElementById('modalOverlay').classList.contains('show')){if(e.key==='Escape')closeModal();return;}
-  if(e.key==='ArrowLeft'||e.key==='ArrowRight'){const papers=getPapers();const idx=papers.indexOf(currentKey);const next=e.key==='ArrowRight'?Math.min(idx+1,papers.length-1):Math.max(idx-1,0);if(next!==idx)switchPaper(papers[next]);}
-});
-
+function filterCards(){if(currentKey)renderContent(currentKey);}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){const papers=getPapers(),idx=papers.indexOf(currentKey),next=e.key==='ArrowRight'?Math.min(idx+1,papers.length-1):Math.max(idx-1,0);if(next!==idx)switchPaper(papers[next]);}});
 buildTabs();
 </script>
 </body>
