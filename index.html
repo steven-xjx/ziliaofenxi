@@ -43,7 +43,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',s
 <body>
 <div class="header">
   <h1>📊 资料分析题型分类汇总</h1>
-  <p>国考 2022-2026 · 江苏 2020-2025 · 浙江 2022-2026 | 共 43 套试卷</p>
+  <p>国考 2022-2026 · 江苏 2020-2025 · 浙江 2022-2026 · 安徽 2024-2026 | 共 46 套试卷</p>
 </div>
 <div class="container">
   <div class="cat-tabs">
@@ -51,6 +51,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',s
     <div class="cat-tab" onclick="switchCat('guokao')">国考</div>
     <div class="cat-tab" onclick="switchCat('jiangsu')">江苏</div>
     <div class="cat-tab" onclick="switchCat('zhejiang')">浙江</div>
+    <div class="cat-tab" onclick="switchCat('anhui')">安徽</div>
   </div>
   <div class="paper-tabs" id="paperTabs"></div>
   <div class="search-box"><input type="text" id="searchInput" placeholder="🔍 搜索题型关键词" oninput="filterCards()"></div>
@@ -107,12 +108,13 @@ const DATA={
 const ORDER={
   guokao:['2026执法','2026地市','2026副省','2025执法','2025地市','2025副省','2024执法','2024地市','2024副省','2023执法','2023地市','2023副省','2022执法','2022地市','2022副省'],
   jiangsu:['2025江苏A','2025江苏B','2025江苏C','2024江苏A','2024江苏B','2024江苏C','2023江苏A','2023江苏B','2022江苏A','2022江苏B','2022江苏C','2021江苏A','2021江苏B','2021江苏C','2020江苏C'],
+  anhui:['安徽2026','安徽2025','安徽2024'],
   zhejiang:['浙江2026A','浙江2026B','浙江2026C','浙江2025A','浙江2025B','浙江2025C','浙江2024A','浙江2024B','浙江2024C','浙江2023A','浙江2023B','浙江2023C','浙江2022C']
 };
 
 let currentCat='all',currentKey=null;
-function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang]:ORDER[currentCat];}
-function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':'')));buildTabs();}
+function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang,...ORDER.anhui]:ORDER[currentCat];}
+function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':cat==='anhui'?'安徽':''))));buildTabs();}
 function buildTabs(){
   const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
   papers.forEach(k=>{const yr=k.match(/^\d{4}/)[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
