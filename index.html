@@ -51,7 +51,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',s
     <div class="cat-tab" onclick="switchCat('guokao')">国考</div>
     <div class="cat-tab" onclick="switchCat('jiangsu')">江苏</div>
     <div class="cat-tab" onclick="switchCat('zhejiang')">浙江</div>
-    <div class="cat-tab" onclick="switchCat('zhejiang')">浙江</div>
   </div>
   <div class="paper-tabs" id="paperTabs"></div>
   <div class="search-box"><input type="text" id="searchInput" placeholder="🔍 搜索题型关键词" oninput="filterCards()"></div>
@@ -113,7 +112,7 @@ const ORDER={
 
 let currentCat='all',currentKey=null;
 function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang]:ORDER[currentCat];}
-function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':'江苏')));buildTabs();}
+function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':'')));buildTabs();}
 function buildTabs(){
   const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
   papers.forEach(k=>{const yr=k.match(/^\d{4}/)[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
