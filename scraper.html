@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Scraper - 网页抓取工具</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);min-height:100vh;color:#e2e8f0}
+.container{max-width:700px;margin:0 auto;padding:30px 20px}
+.header{text-align:center;padding:30px 0}
+.header h1{font-size:28px;background:linear-gradient(135deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{color:#94a3b8;font-size:14px;margin-top:8px}
+.card{background:#1e293b;border-radius:16px;padding:24px;margin-bottom:16px;border:1px solid #334155}
+.card h2{font-size:16px;margin-bottom:16px;color:#e2e8f0}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:13px;color:#94a3b8;margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid #334155;border-radius:10px;background:#0f172a;color:#e2e8f0;font-size:14px;outline:none;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus{border-color:#60a5fa}
+.form-group textarea{min-height:300px;resize:vertical;font-family:monospace;font-size:13px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;transition:all .2s}
+.btn-primary{background:linear-gradient(135deg,#3b82f6,#2563eb);color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(59,130,246,.4)}
+.btn-secondary{background:#334155;color:#e2e8f0}
+.btn-secondary:hover{background:#475569}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap}
+.status{font-size:13px;color:#94a3b8;margin-top:12px;padding:8px 12px;border-radius:8px;background:#0f172a;display:none}
+.status.show{display:block}
+.status.success{color:#34d399;border:1px solid #34d399}
+.status.error{color:#f87171;border:1px solid #f87171}
+.result{font-size:13px;color:#94a3b8;margin-top:12px}
+.preview{max-height:400px;overflow-y:auto;background:#0f172a;border-radius:10px;padding:16px;font-size:13px;line-height:1.8;white-space:pre-wrap;border:1px solid #334155}
+.tips{font-size:12px;color:#64748b;margin-top:16px;line-height:1.8}
+.tips li{margin-bottom:4px}
+.tips strong{color:#94a3b8}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🌐 Web Scraper</h1>
+    <p>自动登录 + 抓取网页内容</p>
+  </div>
+
+  <div class="card">
+    <h2>📋 抓取配置</h2>
+    <div class="form-group">
+      <label>目标网址</label>
+      <input type="text" id="url" placeholder="https://example.com/login" value="">
+    </div>
+    <div class="form-group">
+      <label>用户名</label>
+      <input type="text" id="username" placeholder="输入登录用户名">
+    </div>
+    <div class="form-group">
+      <label>密码</label>
+      <input type="password" id="password" placeholder="输入登录密码">
+    </div>
+    <div class="form-group">
+      <label>用户名输入框选择器（可选，默认自动检测）</label>
+      <input type="text" id="userSelector" placeholder="如: input[name=username]">
+    </div>
+    <div class="form-group">
+      <label>密码输入框选择器（可选）</label>
+      <input type="text" id="passSelector" placeholder="如: input[type=password]">
+    </div>
+    <div class="form-group">
+      <label>登录按钮选择器（可选）</label>
+      <input type="text" id="submitSelector" placeholder="如: button[type=submit]">
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" onclick="startScrape()">🚀 开始抓取</button>
+      <button class="btn btn-secondary" onclick="clearResult()">🗑️ 清空</button>
+    </div>
+    <div class="status" id="status"></div>
+  </div>
+
+  <div class="card" id="resultCard" style="display:none">
+    <h2>📄 抓取结果 <span id="resultTitle" style="font-size:12px;color:#64748b"></span></h2>
+    <div class="form-group">
+      <label>页面内容</label>
+      <div class="preview" id="resultContent"></div>
+    </div>
+    <div class="btn-group" style="margin-top:12px">
+      <button class="btn btn-secondary" onclick="copyResult()">📋 复制内容</button>
+      <button class="btn btn-secondary" onclick="downloadResult()">💾 下载 TXT</button>
+    </div>
+  </div>
+
+  <div class="tips">
+    <h3 style="margin-bottom:8px;color:#94a3b8">💡 使用说明</h3>
+    <ul>
+      <li>1. 填写目标网址（需要登录的页面）</li>
+      <li>2. 填写登录账号和密码</li>
+      <li>3. 可选填写选择器（不填则自动检测常用输入框）</li>
+      <li>4. 点击"开始抓取"自动完成登录并提取页面内容</li>
+      <li><strong>原理：</strong>通过 CDP Proxy 直连浏览器，携带登录态，自动填写表单并提交</li>
+      <li><strong>安全：</strong>所有操作均在本地浏览器完成，密码不会上传到任何服务器</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+const CDP = 'http://localhost:3456';
+
+async function startScrape() {
+  const status = document.getElementById('status');
+  const url = document.getElementById('url').value.trim();
+  const username = document.getElementById('username').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (!url || !username || !password) {
+    status.className = 'status error show';
+    status.textContent = '请填写网址、用户名和密码';
+    return;
+  }
+
+  status.className = 'status show';
+  status.textContent = '⏳ 正在打开页面...';
+
+  try {
+    // Step 1: Create new tab
+    const newTab = await fetch(CDP + '/new', {
+      method: 'POST',
+      body: url
+    }).then(r => r.json());
+
+    if (!newTab.targetId) throw new Error('无法创建标签页');
+    const tabId = newTab.targetId;
+    status.textContent = '⏳ 页面已打开，正在查找登录表单...';
+
+    await sleep(3000);
+
+    // Step 2: Fill login form
+    const userSel = document.getElementById('userSelector').value.trim() ||
+      'input[type=text], input[type=email], input[name=username], input[name=email], input[id*=username], input[id*=email], input[id*=login]';
+    const passSel = document.getElementById('passSelector').value.trim() ||
+      'input[type=password]';
+    const submitSel = document.getElementById('submitSelector').value.trim() ||
+      'button[type=submit], input[type=submit], button:contains("登录"), button:contains("Login"), button:contains("Sign in")';
+
+    // Fill username
+    await evalJS(tabId, `
+      var u = document.querySelector('${userSel}');
+      if(u) { u.value = '${username.replace(/'/g, "\\'")}'; u.dispatchEvent(new Event('input',{bubbles:true})); u.dispatchEvent(new Event('change',{bubbles:true})); }
+      'user:' + (u ? 'filled' : 'not found');
+    `);
+
+    // Fill password
+    await evalJS(tabId, `
+      var p = document.querySelector('${passSel}');
+      if(p) { p.value = '${password.replace(/'/g, "\\'")}'; p.dispatchEvent(new Event('input',{bubbles:true})); }
+      'pass:' + (p ? 'filled' : 'not found');
+    `);
+
+    status.textContent = '⏳ 表单已填写，正在点击登录...';
+    await sleep(1000);
+
+    // Click submit
+    await evalJS(tabId, `
+      var s = document.querySelector('${submitSel}');
+      if(s) s.click();
+      'submit:' + (s ? 'clicked' : 'not found');
+    `);
+
+    await sleep(3000);
+
+    // Step 3: Extract content
+    status.textContent = '⏳ 登录完成，正在提取页面内容...';
+
+    const result = await evalJS(tabId, `
+      JSON.stringify({
+        title: document.title,
+        url: location.href,
+        text: document.body.innerText.slice(0, 50000)
+      });
+    `);
+
+    const data = JSON.parse(result.value);
+
+    // Display result
+    document.getElementById('resultCard').style.display = 'block';
+    document.getElementById('resultTitle').textContent = ' - ' + data.title;
+    document.getElementById('resultContent').textContent = data.text;
+
+    status.className = 'status success show';
+    status.textContent = '✅ 抓取完成！页面标题: ' + data.title;
+
+    // Close tab
+    fetch(CDP + '/close?target=' + tabId);
+
+  } catch (e) {
+    status.className = 'status error show';
+    status.textContent = '❌ 错误: ' + e.message;
+  }
+}
+
+async function evalJS(tabId, code) {
+  const res = await fetch(CDP + '/eval?target=' + tabId, {
+    method: 'POST',
+    body: code
+  });
+  return res.json();
+}
+
+function sleep(ms) {
+  return new Promise(r => setTimeout(r, ms));
+}
+
+function clearResult() {
+  document.getElementById('resultCard').style.display = 'none';
+  document.getElementById('status').className = 'status';
+}
+
+function copyResult() {
+  const text = document.getElementById('resultContent').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const s = document.getElementById('status');
+    s.className = 'status success show';
+    s.textContent = '✅ 已复制到剪贴板';
+  });
+}
+
+function downloadResult() {
+  const text = document.getElementById('resultContent').textContent;
+  const blob = new Blob([text], {type: 'text/plain'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'scraped-content.txt';
+  a.click();
+}
+</script>
+</body>
+</html>
