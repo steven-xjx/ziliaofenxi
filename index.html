@@ -121,14 +121,14 @@ function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu
 function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':cat==='anhui'?'安徽':'')));buildTabs();}
 function buildTabs(){
   const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
-  papers.forEach(k=>{const yr=k.match(/^\d{4}/)[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
+  papers.forEach(k=>{const yr=(k.match(/\d{4}/)||['其他'])[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
   tabs.innerHTML='';
   Object.entries(groups).reverse().forEach(([yr,keys])=>{
     const gDiv=document.createElement('div');gDiv.className='year-group';
     const lbl=document.createElement('div');lbl.className='year-label';lbl.textContent=yr;gDiv.appendChild(lbl);
     keys.forEach(k=>{
       const tab=document.createElement('span');tab.className='paper-tab';
-      const short=k.replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22');
+      const short=(k.match(/\d{4}/)?k:'其他').replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22');
       tab.textContent=short;tab.onclick=()=>switchPaper(k);gDiv.appendChild(tab);
     });tabs.appendChild(gDiv);
   });
