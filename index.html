@@ -53,6 +53,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Microsoft YaHei',s
     <div class="cat-tab" onclick="switchCat('zhejiang')">浙江</div>
     <div class="cat-tab" onclick="switchCat('anhui')">安徽</div>
     <div class="cat-tab" onclick="switchCat('beijing')">北京</div>
+    <div class="cat-tab" onclick="switchCat('fujian')">福建</div>
   </div>
   <div class="paper-tabs" id="paperTabs"></div>
   <div class="search-box"><input type="text" id="searchInput" placeholder="🔍 搜索题型关键词" oninput="filterCards()"></div>
@@ -125,6 +126,13 @@ const DATA={
   "北京2013":{items:["现期平均数","综合资料","现期比重","平均数的增长率","综合分析","增长量计算","现期平均数","直接找数","现期倍数","综合分析","基期比重","直接找数","现期平均数","现期比重","综合分析"]},
   "北京2012":{items:["综合资料","直接找数","基期和差","基期比重","综合分析","现期比重","直接找数","统计表","统计表","综合分析","直接找数","综合资料","现期平均数","现期平均数","综合分析"]},
   "北京2011":{items:["综合资料","两期比重","综合资料","现期比重","综合分析","现期平均数","现期比重","统计表","现期平均数","综合分析","一般增长率","增长量比较","两期比重","基期平均数","综合分析"]},
+  "福建2026":{items:[]},
+  "福建2025":{items:[]},
+  "福建2024":{items:[]},
+  "福建2023":{items:[]},
+  "福建2022":{items:[]},
+  "福建2021":{items:[]},
+  "福建2020":{items:[]},
 };
 
 
@@ -134,12 +142,13 @@ const ORDER={
   jiangsu:['2025江苏A','2025江苏B','2025江苏C','2024江苏A','2024江苏B','2024江苏C','2023江苏A','2023江苏B','2022江苏A','2022江苏B','2022江苏C','2021江苏A','2021江苏B','2021江苏C','2020江苏C'],
   zhejiang:['浙江2026A','浙江2026B','浙江2026C','浙江2025A','浙江2025B','浙江2025C','浙江2024A','浙江2024B','浙江2024C','浙江2023A','浙江2023B','浙江2023C','浙江2022C'],
   anhui:['安徽2026','安徽2025','安徽2024','安徽2023','安徽2022','安徽2021','安徽2020'],
+  fujian:['福建2026','福建2025','福建2024','福建2023','福建2022','福建2021','福建2020'],
   beijing:['北京2023','北京2022','北京2021区','北京2021乡','北京2020区','北京2020乡','北京2019','北京2018','北京2017','北京2016','北京2015','北京2014','北京2013','北京2012','北京2011']
 };
 
 let currentCat='all',currentKey=null;
-function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang,...ORDER.anhui,...ORDER.beijing]:ORDER[currentCat];}
-function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':cat==='anhui'?'安徽':cat==='beijing'?'北京':'')));buildTabs();}
+function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang,...ORDER.anhui,...ORDER.fujian,...ORDER.beijing]:ORDER[currentCat];}
+function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':cat==='anhui'?'安徽':cat==='beijing'?'北京':cat==='fujian'?'福建':'')));buildTabs();}
 function buildTabs(){
   const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
   papers.forEach(k=>{const yr=(k.match(/\d{4}/)||['其他'])[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
