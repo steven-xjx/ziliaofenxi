@@ -352,12 +352,17 @@ let currentCat='all',currentKey=null;
 function getPapers(){return currentCat==='all'?[...ORDER.guokao,...ORDER.jiangsu,...ORDER.zhejiang,...ORDER.anhui,...ORDER.beijing,...ORDER.fujian,...ORDER.gansu,...ORDER.guangdong,...ORDER.guangxi,...ORDER.guizhou,...ORDER.hainan,...ORDER.hebei,...ORDER.henan,...ORDER.heilongjiang,...ORDER.hubei,...ORDER.hunan,...ORDER.jilin,...ORDER.jiangxi,...ORDER.liaoning,...ORDER.neimenggu,...ORDER.ningxia,...ORDER.qinghai,...ORDER.shandong,...ORDER.shanxi,...ORDER.shaanxi,...ORDER.shanghai,...ORDER.sichuan,...ORDER.tianjin,...ORDER.xinjiang,...ORDER.yunnan,...ORDER.chongqing,]:ORDER[currentCat];}
 function switchCat(cat){currentCat=cat;document.querySelectorAll('.cat-tab').forEach(t=>t.classList.toggle('active',t.textContent===(cat==='all'?'全部':cat==='guokao'?'国考':cat==='jiangsu'?'江苏':cat==='zhejiang'?'浙江':cat==='anhui'?'安徽':cat==='beijing'?'北京':cat==='fujian'?'福建':cat==='gansu'?'甘肃':cat==='guangdong'?'广东':cat==='guangxi'?'广西':cat==='guizhou'?'贵州':cat==='hainan'?'海南':cat==='hebei'?'河北':cat==='henan'?'河南':cat==='heilongjiang'?'黑龙江':cat==='hubei'?'湖北':cat==='hunan'?'湖南':cat==='jilin'?'吉林':cat==='jiangxi'?'江西':cat==='liaoning'?'辽宁':cat==='neimenggu'?'内蒙古':cat==='ningxia'?'宁夏':cat==='qinghai'?'青海':cat==='shandong'?'山东':cat==='shanxi'?'山西':cat==='shaanxi'?'陕西':cat==='shanghai'?'上海':cat==='sichuan'?'四川':cat==='tianjin'?'天津':cat==='xinjiang'?'新疆':cat==='yunnan'?'云南':cat==='chongqing'?'重庆':'')));buildTabs();}
 function buildTabs(){
-  const tabs=document.getElementById('paperTabs'),papers=getPapers();
+  const tabs=document.getElementById('paperTabs'),papers=getPapers(),groups={};
+  papers.forEach(k=>{const yr=(k.match(/\d{4}/)||['其他'])[0];if(!groups[yr])groups[yr]=[];groups[yr].push(k)});
   tabs.innerHTML='';
-  papers.forEach(k=>{
-    const tab=document.createElement('span');tab.className='paper-tab';
-    const short=(k.match(/\d{4}/)?k:'其他').replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22').replace('2021','21').replace('2020','20').replace('2019','19').replace('2018','18').replace('2017','17').replace('2016','16').replace('2015','15').replace('2014','14').replace('2013','13').replace('2012','12').replace('2011','11');
-    tab.textContent=short;tab.onclick=()=>switchPaper(k);tabs.appendChild(tab);
+  Object.entries(groups).reverse().forEach(([yr,keys])=>{
+    const gDiv=document.createElement('div');gDiv.className='year-group';
+    const lbl=document.createElement('div');lbl.className='year-label';lbl.textContent=yr;gDiv.appendChild(lbl);
+    keys.forEach(k=>{
+      const tab=document.createElement('span');tab.className='paper-tab';
+      const short=(k.match(/\d{4}/)?k:'其他').replace('2025江苏A','25A').replace('2025江苏B','25B').replace('2025江苏C','25C').replace('2024江苏A','24A').replace('2024江苏B','24B').replace('2024江苏C','24C').replace('2023江苏A','23A').replace('2023江苏B','23B').replace('2022江苏A','22A').replace('2022江苏B','22B').replace('2022江苏C','22C').replace('2021江苏A','21A').replace('2021江苏B','21B').replace('2021江苏C','21C').replace('2020江苏C','20C').replace('2026','26').replace('2025','25').replace('2024','24').replace('2023','23').replace('2022','22').replace('2021','21').replace('2020','20').replace('2019','19').replace('2018','18').replace('2017','17').replace('2016','16').replace('2015','15').replace('2014','14').replace('2013','13').replace('2012','12').replace('2011','11');
+      tab.textContent=short;tab.onclick=()=>switchPaper(k);gDiv.appendChild(tab);
+    });tabs.appendChild(gDiv);
   });
   if(papers.length>0)switchPaper(papers[0]);
 }
